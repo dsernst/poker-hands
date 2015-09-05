@@ -35,15 +35,6 @@
 //         Full House            Full House
 //         With Three Fours      with Three Threes
 
-var sampleHands = [
-  ['5H 5C 6S 7S KD', '2C 3S 8S 8D TD'],
-  ['5D 8C 9S JS AC', '2C 5C 7D 8S QH'],
-  ['2D 9C AS AH AC', '3D 6D 7D TD QD'],
-  ['4D 6S 9H QH QC', '3D 6D 7H QD QS'],
-  ['2H 2D 4C 4D 4S', '3C 3D 3S 9S 9D'],
-];
-
-var should = require('should');
 var _ = require('lodash');
 
 function countCards(indexToCount, hand) {
@@ -57,15 +48,8 @@ function hasAKind(count, hand) {
 }
 
 var hasPair = _.curry(hasAKind)(2);
-hasPair(sampleHands[0][0]).should.eql('5');
-hasPair(sampleHands[0][1]).should.eql('8');
-
 var hasThreeOfAKind = _.curry(hasAKind)(3);
-hasThreeOfAKind(sampleHands[2][0]).should.eql('A');
-
 var hasFourOfAKind = _.curry(hasAKind)(4);
-hasFourOfAKind('9D 9S KH 9H 9C').should.eql('9');
-
 
 var cardOrder = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2'];
 
@@ -85,27 +69,17 @@ function hasTwoPairs(hand) {
     return sortCards(leftPair + ' ' + rightPair);
   }
 }
-hasTwoPairs('3H 9C 9S 2D 3D').should.eql(['9', '3']);
-hasTwoPairs('7S 8H 8C KH KS').should.eql(['K', '8']);
-sampleHands[0].map(hasTwoPairs).should.eql([undefined, undefined]);
 
 function highestCard(hand) {
   return sortCards(hand).filter(function (value) {
     return value !== hasPair(hand);
   });
 }
-highestCard(sampleHands[1][0])[0].should.eql('A');
-highestCard(sampleHands[1][1])[0].should.eql('Q');
 
 function hasFlush(hand) {
   return _.findKey(countSuits(hand), _.eq.bind(null, 5));
 }
-hasFlush(sampleHands[2][1]).should.eql('D');
 
-hasPair(sampleHands[3][0]).should.eql('Q');
-hasPair(sampleHands[3][1]).should.eql('Q');
-highestCard(sampleHands[3][0])[0].should.eql('9');
-highestCard(sampleHands[3][1])[0].should.eql('7');
 
 function hasFullHouse(hand) {
   var values = countValues(hand);
@@ -113,8 +87,6 @@ function hasFullHouse(hand) {
     return _.findKey(values, _.eq.bind(null, 3));
   }
 }
-hasFullHouse(sampleHands[4][0]).should.eql('4');
-hasFullHouse(sampleHands[4][1]).should.eql('3');
 
 function hasStraight(hand) {
   var sortedCards = highestCard(hand);
@@ -124,19 +96,16 @@ function hasStraight(hand) {
   });
   return isStraight ? sortedCards[0] : false;
 }
-hasStraight('8D 6C 5S 7H 4S').should.eql('8');
 
 function hasStraightFlush(hand) {
   if (hasFlush(hand)) {
     return hasStraight(hand);
   }
 }
-hasStraightFlush('4H 3H 6H 5H 7H').should.eql('7');
 
 function hasRoyalFlush(hand) {
   return hasStraightFlush(hand) === 'A';
 }
-hasRoyalFlush('AD KD JD QD TD').should.eql(true);
 
 var bestHands = [
   hasRoyalFlush,    // 0
@@ -156,9 +125,6 @@ function getHandStrength(hand) {
     return bestHands[bestHandsIndex](hand);
   });
 }
-sampleHands.map(function (round) {
-  return round.map(getHandStrength);
-}).should.eql([[8, 8], [9, 9], [6, 4], [8, 8], [3, 3]]);
 
 function judgeWinner(players) {
   var handStrengths = players.map(getHandStrength);
@@ -168,7 +134,6 @@ function judgeWinner(players) {
   var tiebreakers = players.map(bestHands[handStrengths[0]]);
   return tiebreakers.indexOf(_.min(tiebreakers, getValueIndex));
 }
-sampleHands.map(judgeWinner).should.eql([1, 0, 1, 0, 0]);
 
 module.exports = {
   highestCard: highestCard,
