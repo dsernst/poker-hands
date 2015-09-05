@@ -17,11 +17,20 @@ var poker = require('poker-hands');
 A hand is represented as a string of 5 pairs of characters. For example:
 
 ```js
-'5H 5C 6S 7S KD'
-// is a hand with the 5 of Hearts, 5 of Clubs, 6 of Spades, 7 of Spades, and King of Diamonds.
+'5H 5C 6S 7S KD' // is a hand with
+// 5 of Hearts
+// 5 of Clubs
+// 6 of Spades
+// 7 of Spades
+// King of Diamonds
 
-'2C 3S 8S 8D TD'
-// is a hand with the 2 of Clubs, 3 of Spades, 8 of Spades, 8 of Diamonds, and Ten of Diamonds.
+
+'2C 3S 8S 8D TD' // is a hand with
+// 2 of Clubs
+// 3 of Spades
+// 8 of Spades
+// 8 of Diamonds
+// Ten of Diamonds
 ```
 
 ### .judgeWinner([hand, hand])
