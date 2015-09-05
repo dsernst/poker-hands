@@ -1,6 +1,6 @@
 # poker-hands
 
-Quickly evalute poker hands.
+Quickly evaluate poker hands.
 
 ## Install
 

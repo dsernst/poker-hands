@@ -1,7 +1,7 @@
 {
   "name": "poker-hands",
   "version": "0.0.2",
-  "description": "Quickly evalute poker hands",
+  "description": "Quickly evaluate poker hands",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
