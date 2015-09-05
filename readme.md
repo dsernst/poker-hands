@@ -28,34 +28,34 @@ A hand is represented as a string of 5 pairs of characters. For example:
 Given a tuple of two hands, return the index of the stronger hand.
 
 ### .highestCard(hand)
-Given a hand, return an array of the cards' values, sorted strongest to weakest.
+Return an array of the cards' values, sorted strongest to weakest.
 
 ### .hasPair(hand)
-Given a hand, if the hand has a pair, return the value of the pair, otherwise return `undefined`.
+If the hand has a pair, return the value of the pair, otherwise return `undefined`.
 
 ### .hasTwoPairs(hand)
-Given a hand, if the hand has a two pairs, return an array of the values of the pairs with the strongest first, otherwise return `undefined`.
+If the hand has a two pairs, return an array of the values of the pairs with the strongest first, otherwise return `undefined`.
 
 ### .hasThreeOfAKind(hand)
-Given a hand, if the hand has a three of a kind, return the value of the three of a kind, otherwise return `undefined`.
+If the hand has a three of a kind, return the value of the three of a kind, otherwise return `undefined`.
 
 ### .hasStraight(hand)
-Given a hand, if the hand has a straight, return the highest value in the straight, otherwise return `undefined`.
+If the hand has a straight, return the highest value in the straight, otherwise return `undefined`.
 
 ### .hasFlush(hand)
-Given a hand, if the hand has a flush, return the suit of the flush, otherwise return `undefined`.
+If the hand has a flush, return the suit of the flush, otherwise return `undefined`.
 
 ### .hasFullHouse(hand)
-Given a hand, if the hand has a full house, return an array of the values of the full house with the three of a kind first, otherwise return `undefined`.
+If the hand has a full house, return an array of the values of the full house with the three of a kind first, otherwise return `undefined`.
 
 ### .hasFourOfAKind(hand)
-Given a hand, if the hand has a four of a kind, return the value of the four of a kind, otherwise return `undefined`.
+If the hand has a four of a kind, return the value of the four of a kind, otherwise return `undefined`.
 
 ### .hasStraightFlush(hand)
-Given a hand, if the hand has a straight flush, return the highest value in the straight, otherwise return `undefined`.
+If the hand has a straight flush, return the highest value in the straight, otherwise return `undefined`.
 
 ### .hasRoyalFlush(hand)
-Given a hand, return a boolean for if the hand has a royal flush.
+Return a boolean for if the hand has a royal flush.
 
 ## Rules
 
