@@ -1,5 +1,8 @@
 # poker-hands
 
+[![NPM Version](https://img.shields.io/npm/v/poker-hands.svg)](https://www.npmjs.com/package/poker-hands)
+[![Build Status](https://travis-ci.org/dsernst/poker-hands.svg?branch=master)](https://travis-ci.org/dsernst/poker-hands)
+
 Quickly evaluate poker hands.
 
 ## Rules
